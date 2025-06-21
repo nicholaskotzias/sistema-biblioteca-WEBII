@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Aluno;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class AlunoController extends Controller
@@ -12,7 +13,7 @@ class AlunoController extends Controller
      */
     public function index()
     {
-        //
+        return view('alunos.index');
     }
 
     /**
@@ -20,7 +21,8 @@ class AlunoController extends Controller
      */
     public function create()
     {
-        //
+        $users = User::all();
+        return view('alunos.create')->with(['users' => $users]);
     }
 
     /**
@@ -28,7 +30,33 @@ class AlunoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validatedUser = $request->validate([
+            'name' => 'required|string|max:255',
+            'email' => 'required|email|unique:users',
+            'password' => 'required|string|min:8|confirmed',
+        ]);
+
+        $validatedAluno = $request->validate([
+            'matricula' => 'required|string|unique:alunos,matricula',
+            'curso' => 'required|string',
+            'data_nascimento' => 'required|date',
+        ]);
+
+        $user = User::create([
+            'name' => $validatedUser['name'],
+            'email' => $validatedUser['email'],
+            'password' => bcrypt($validatedUser['password']),
+            'tipo' => 'aluno',
+        ]);
+
+        Aluno::create([
+            'user_id' => $user->id,
+            'matricula' => $validatedAluno['matricula'],
+            'curso' => $validatedAluno['curso'],
+            'data_nascimento' => $validatedAluno['data_nascimento'],
+        ]);
+
+        return redirect()->route('admin.index')->with('success', 'Aluno criado com sucesso!');
     }
 
     /**
