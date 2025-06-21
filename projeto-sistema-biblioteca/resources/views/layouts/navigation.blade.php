@@ -2,20 +2,16 @@
     <!-- Primary Navigation Menu -->
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex justify-between h-16">
-            <div class="flex">
-                <!-- Logo -->
-                <div class="shrink-0 flex items-center">
-                    <a href="{{ route('dashboard') }}">
-                        <x-application-logo class="block h-9 w-auto fill-current text-gray-800 dark:text-gray-200" />
-                    </a>
-                </div>
+            <div class="flex items-center">
+                <a href="{{ url()->previous() }}" class="flex items-center space-x-2">
+                    <!-- Ícone -->
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-blue-600 dark:text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 20h9M12 4H5a2 2 0 00-2 2v12a2 2 0 002 2h7V4z" />
+                    </svg>
 
-                <!-- Navigation Links -->
-                <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
-                    <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
-                        {{ __('Dashboard') }}
-                    </x-nav-link>
-                </div>
+                    <!-- Texto -->
+                    <span class="text-xl font-bold text-gray-800 dark:text-gray-200 select-none">SISTEMA BIBLIOTECA</span>
+                </a>
             </div>
 
             <!-- Settings Dropdown -->
