@@ -3,6 +3,9 @@
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AlunoController;
+use App\Http\Middleware\AdminMiddleware;
+use App\Http\Middleware\AlunoMiddleware;
+use App\Http\Controllers\Admin\AlunoController as AdminAlunoController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -12,13 +15,14 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
-//middleware de admin
-Route::get('/admin', function () {
-    return view('admin.index');
-})->name('admin.index');
-Route::get('/alunos/create', [AlunoController::class, 'create'])->name('alunos.create');
-Route::post('/alunos', [AlunoController::class, 'store'])->name('alunos.store');
-//
+Route::middleware(['auth', AdminMiddleware::class])->group(function () {
+    Route::get('/admin', function () {
+        return view('admin.index');
+    })->name('admin.index');
+    Route::get('/admin/alunos', [AdminAlunoController::class, 'index'])->name('admin.alunos.index');
+    Route::get('/admin/alunos/create', [AdminAlunoController::class, 'create'])->name('admin.alunos.create');
+    Route::post('/alunos', [AdminAlunoController::class, 'store'])->name('admin.alunos.store');
+});
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
@@ -26,8 +30,8 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-//middleware de alunos
-Route::get('/alunos', [AlunoController::class, 'index'])->name('alunos.index');
-//
+Route::middleware(['auth', AlunoMiddleware::class])->group(function () {
+    Route::get('/alunos', [AlunoController::class, 'index'])->name('alunos.index');
+});
 
 require __DIR__.'/auth.php';
