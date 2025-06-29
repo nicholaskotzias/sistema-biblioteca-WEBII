@@ -16,11 +16,12 @@ class AlunoController extends Controller
         return view('alunos.index');
     }
 
-    public function show(Aluno $aluno)
+    public function show(string $id)
     {
-        //
+        $aluno = Aluno::findOrFail($id);
+        return view('alunos.show')->with(['aluno' => $aluno]);
     }
-    
+
     public function edit(Aluno $aluno)
     {
         //
