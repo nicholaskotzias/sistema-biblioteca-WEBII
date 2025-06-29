@@ -1,5 +1,5 @@
 <x-app-layout>
-    
+
     @if (session('success'))
         <div class="mb-4 p-4 bg-green-500 text-white rounded-lg shadow">
             {{ session('success') }}
@@ -17,7 +17,7 @@
         </div>
 
         <div class="bg-white dark:bg-gray-800 rounded-3xl shadow-xl p-8 max-w-md w-full space-y-5 grid grid-cols-1 gap-5">
-            <a href="#" class="flex items-center justify-center gap-3 py-3 rounded-xl bg-gradient-to-r from-yellow-600 to-yellow-700 text-white font-semibold shadow-lg hover:from-yellow-700 hover:to-yellow-800 transition w-full max-w-full">
+            <a href="{{ route('admin.alunos.index') }}" class="flex items-center justify-center gap-3 py-3 rounded-xl bg-gradient-to-r from-yellow-600 to-yellow-700 text-white font-semibold shadow-lg hover:from-yellow-700 hover:to-yellow-800 transition w-full max-w-full">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M16 7a4 4 0 11-8 0 4 4 0 018 0z" />
                     <path stroke-linecap="round" stroke-linejoin="round" d="M12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
