@@ -34,4 +34,6 @@ Route::middleware(['auth', AlunoMiddleware::class])->group(function () {
     Route::get('/alunos', [AlunoController::class, 'index'])->name('alunos.index');
 });
 
+Route::get('/alunos/{id}', [AlunoController::class, 'show'])->name('alunos.show');
+
 require __DIR__.'/auth.php';
