@@ -42,7 +42,7 @@
         </div>
             <div class="pt-4">
                 @php
-                    $rotaVoltar = Auth::user()->tipo === 'admin' ? route('admin.alunos.index') : route('aluno.index');
+                    $rotaVoltar = Auth::user()->tipo === 'admin' ? route('admin.alunos.index') : route('alunos.index');
                 @endphp
 
                 <a href="{{ $rotaVoltar }}" class="inline-block px-6 py-2 bg-indigo-600 hover:bg-indigo-700 text-white font-semibold rounded-xl transition">
