@@ -4,7 +4,7 @@
         <div class="flex justify-between h-16">
             <div class="flex items-center">
                     @php
-                        $rotaVoltar = Auth::user()->tipo === 'admin' ? route('admin.index') : route('aluno.index');
+                        $rotaVoltar = Auth::user()->tipo === 'admin' ? route('admin.index') : route('alunos.index');
                     @endphp
 
                     <a href="{{ $rotaVoltar }}" class="inline-block px-6 py-2 bg-indigo-600 hover:bg-indigo-700 text-white font-semibold rounded-xl transition">
