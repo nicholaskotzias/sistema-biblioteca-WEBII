@@ -61,11 +61,13 @@ class AlunoController extends Controller
         return redirect()->route('admin.alunos.index')->with('success', 'Aluno criado com sucesso!');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
     public function destroy(string $id)
     {
-        //
+        $aluno = Aluno::with('user')->findOrFail($id);
+
+        $aluno->user->delete();
+        $aluno->delete();
+
+        return redirect()->route('admin.alunos.index')->with('success', 'Aluno excluído com sucesso.');
     }
 }
