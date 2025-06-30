@@ -22,6 +22,7 @@ Route::middleware(['auth', AdminMiddleware::class])->group(function () {
     Route::get('/admin/alunos', [AdminAlunoController::class, 'index'])->name('admin.alunos.index');
     Route::get('/admin/alunos/create', [AdminAlunoController::class, 'create'])->name('admin.alunos.create');
     Route::post('/alunos', [AdminAlunoController::class, 'store'])->name('admin.alunos.store');
+    Route::delete('/alunos/{id}', [AdminAlunoController::class, 'destroy'])->name('admin.alunos.destroy');
 });
 
 Route::middleware('auth')->group(function () {
@@ -35,5 +36,8 @@ Route::middleware(['auth', AlunoMiddleware::class])->group(function () {
 });
 
 Route::get('/alunos/{id}', [AlunoController::class, 'show'])->name('alunos.show');
+Route::get('/alunos/{id}/edit', [AlunoController::class, 'edit'])->name('alunos.edit');
+Route::put('/alunos/{id}', [AlunoController::class, 'update'])->name('alunos.update');
+
 
 require __DIR__.'/auth.php';
