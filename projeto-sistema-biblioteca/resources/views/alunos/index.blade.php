@@ -40,6 +40,13 @@
                 </svg>
                 Ver Perfil
             </a>
+
+            <a href="{{ route('alunos.edit', Auth::user()->aluno->id) }}" class="flex items-center justify-center gap-3 py-3 rounded-xl bg-gradient-to-r from-yellow-600 to-orange-700 text-white font-semibold shadow-lg hover:from-yellow-700 hover:to-orange-800 transition w-full max-w-full">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M11 17h2M12 12v5m-7-6h14a2 2 0 012 2v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4a2 2 0 012-2z" />
+                </svg>
+                Editar Perfil
+            </a>
         </div>
     </div>
 </x-app-layout>
