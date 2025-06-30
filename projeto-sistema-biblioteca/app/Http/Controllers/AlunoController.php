@@ -22,16 +22,42 @@ class AlunoController extends Controller
         return view('alunos.show')->with(['aluno' => $aluno]);
     }
 
-    public function edit(Aluno $aluno)
+    public function edit(string $id)
     {
-        //
+        $aluno = Aluno::with('user')->findOrFail($id);
+
+        return view('alunos.edit', compact('aluno'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, Aluno $aluno)
+    public function update(Request $request, $id)
     {
-        //
+        $aluno = Aluno::with('user')->findOrFail($id);
+
+        $validatedUser = $request->validate([
+            'name' => 'required|string|max:255',
+            'email' => 'required|email|unique:users,email,' . $aluno->user->id,
+            'password' => 'nullable|string|min:8|confirmed',
+        ]);
+
+        $validatedAluno = $request->validate([
+            'matricula' => 'required|string|unique:alunos,matricula,' . $aluno->id,
+            'curso' => 'required|string',
+            'data_nascimento' => 'required|date',
+        ]);
+
+        $aluno->user->name = $validatedUser['name'];
+        $aluno->user->email = $validatedUser['email'];
+
+        if (!empty($validatedUser['password'])) {
+            $aluno->user->password = bcrypt($validatedUser['password']);
+        }
+
+        $aluno->user->save();
+
+        $aluno->update($validatedAluno);
+
+        $rota = auth()->user()->tipo === 'admin' ? 'admin.alunos.index' : 'alunos.index';
+
+        return redirect()->route($rota, $aluno->id)->with('success', 'Aluno atualizado com sucesso.');
     }
 }
