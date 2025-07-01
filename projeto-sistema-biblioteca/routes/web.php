@@ -6,6 +6,7 @@ use App\Http\Controllers\AlunoController;
 use App\Http\Middleware\AdminMiddleware;
 use App\Http\Middleware\AlunoMiddleware;
 use App\Http\Controllers\Admin\AlunoController as AdminAlunoController;
+use App\Http\Controllers\Admin\CategoriaController as AdminCategoriaController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -23,6 +24,8 @@ Route::middleware(['auth', AdminMiddleware::class])->group(function () {
     Route::get('/admin/alunos/create', [AdminAlunoController::class, 'create'])->name('admin.alunos.create');
     Route::post('/alunos', [AdminAlunoController::class, 'store'])->name('admin.alunos.store');
     Route::delete('/alunos/{id}', [AdminAlunoController::class, 'destroy'])->name('admin.alunos.destroy');
+    Route::resource('/admin/categorias', AdminCategoriaController::class)->names('admin.categorias');
+
 });
 
 Route::middleware('auth')->group(function () {
@@ -38,6 +41,5 @@ Route::middleware(['auth', AlunoMiddleware::class])->group(function () {
 Route::get('/alunos/{id}', [AlunoController::class, 'show'])->name('alunos.show');
 Route::get('/alunos/{id}/edit', [AlunoController::class, 'edit'])->name('alunos.edit');
 Route::put('/alunos/{id}', [AlunoController::class, 'update'])->name('alunos.update');
-
 
 require __DIR__.'/auth.php';
