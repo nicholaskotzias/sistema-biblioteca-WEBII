@@ -9,6 +9,8 @@ class Autor extends Model
 {
     use SoftDeletes;
 
+    protected $table = 'autores';
+
     protected $fillable = [
         'nome',
         'biografia',
