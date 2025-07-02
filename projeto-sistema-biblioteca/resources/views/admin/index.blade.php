@@ -32,7 +32,7 @@
                 Manter Livro
             </a>
 
-            <a href="#" class="flex items-center justify-center gap-3 py-3 rounded-xl bg-gradient-to-r from-purple-600 to-indigo-700 text-white font-semibold shadow-lg hover:from-purple-700 hover:to-indigo-800 transition w-full max-w-full">
+            <a href="{{ route('admin.autores.index') }}" class="flex items-center justify-center gap-3 py-3 rounded-xl bg-gradient-to-r from-purple-600 to-indigo-700 text-white font-semibold shadow-lg hover:from-purple-700 hover:to-indigo-800 transition w-full max-w-full">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M7 8h10M7 12h4m1 8h5v-6h-5v6z" />
                 </svg>
