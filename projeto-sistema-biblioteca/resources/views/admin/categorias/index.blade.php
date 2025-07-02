@@ -22,7 +22,6 @@
                     <thead>
                         <tr class="bg-gray-200 dark:bg-gray-700">
                             <th class="px-6 py-3 text-gray-700 dark:text-gray-300">Nome</th>
-                            <th class="px-6 py-3 text-gray-700 dark:text-gray-300">Descrição</th>
                             <th class="px-6 py-3 text-gray-700 dark:text-gray-300">Ações</th>
                         </tr>
                     </thead>
@@ -30,14 +29,13 @@
                         @foreach ($categorias as $categoria)
                             <tr class="border-b border-gray-200 dark:border-gray-700 text-center">
                                 <td class="px-6 py-4 text-gray-900 dark:text-gray-100">{{ $categoria->nome }}</td>
-                                <td class="px-6 py-4 text-gray-900 dark:text-gray-100">{{ $categoria->descricao }}</td>
                                 <td class="px-6 py-4 flex justify-center space-x-2">
                                     <a href="{{ route('admin.categorias.show', $categoria->id) }}" class="px-3 py-1 bg-blue-500 text-white rounded hover:bg-blue-600 transition">Ver</a>
-                                    <a href="{{ route('admin.categorias.edit', $categoria->id) }}" class="px-3 py-1 bg-blue-500 text-white rounded hover:bg-blue-600 transition">Atualizar</a>
+                                    <a href="{{ route('admin.categorias.edit', $categoria->id) }}" class="px-3 py-1 bg-yellow-500 text-white rounded hover:bg-yellow-600 transition">Atualizar</a>
                                     <form action="{{ route('admin.categorias.destroy', $categoria->id) }}" method="POST" onsubmit="return confirm('Tem certeza que deseja excluir esta categoria?');" class="inline">
                                         @csrf
                                         @method('DELETE')
-                                        <button type="submit" class="px-3 py-1 bg-blue-500 text-white rounded hover:bg-blue-600 transition">
+                                        <button type="submit" class="px-3 py-1 bg-red-500 text-white rounded hover:bg-red-600 transition">
                                             Excluir
                                         </button>
                                     </form>

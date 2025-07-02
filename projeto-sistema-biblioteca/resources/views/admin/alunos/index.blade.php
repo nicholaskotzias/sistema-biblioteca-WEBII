@@ -35,11 +35,11 @@
                                 <td class="px-6 py-4 text-gray-900 dark:text-gray-100">{{ $aluno->matricula }}</td>
                                 <td class="px-6 py-4 flex justify-center space-x-2">
                                     <a href="{{ route('alunos.show', $aluno->id) }}" class="px-3 py-1 bg-blue-500 text-white rounded hover:bg-blue-600 transition">Ver</a>
-                                    <a href="{{ route('alunos.edit', $aluno->id) }}" class="px-3 py-1 bg-blue-500 text-white rounded hover:bg-blue-600 transition">Atualizar</a>
+                                    <a href="{{ route('alunos.edit', $aluno->id) }}" class="px-3 py-1 bg-yellow-500 text-white rounded hover:bg-yellow-600 transition">Atualizar</a>
                                     <form action="{{ route('admin.alunos.destroy', $aluno->id) }}" method="POST" onsubmit="return confirm('Tem certeza que deseja excluir este aluno?');" class="inline">
                                         @csrf
                                         @method('DELETE')
-                                        <button type="submit" class="px-3 py-1 bg-blue-500 text-white rounded hover:bg-blue-600 transition">
+                                        <button type="submit" class="px-3 py-1 bg-red-500 text-white rounded hover:bg-red-600 transition">
                                             Excluir
                                         </button>
                                     </form>
