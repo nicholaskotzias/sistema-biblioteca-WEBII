@@ -25,7 +25,6 @@ Route::middleware(['auth', AdminMiddleware::class])->group(function () {
     Route::post('/alunos', [AdminAlunoController::class, 'store'])->name('admin.alunos.store');
     Route::delete('/alunos/{id}', [AdminAlunoController::class, 'destroy'])->name('admin.alunos.destroy');
     Route::resource('/admin/categorias', AdminCategoriaController::class)->names('admin.categorias');
-
 });
 
 Route::middleware('auth')->group(function () {
