@@ -8,6 +8,7 @@ use App\Http\Middleware\AlunoMiddleware;
 use App\Http\Controllers\Admin\AlunoController as AdminAlunoController;
 use App\Http\Controllers\Admin\CategoriaController as AdminCategoriaController;
 use App\Http\Controllers\Admin\AutorController as AdminAutorController;
+use App\Http\Controllers\Admin\LivroController as AdminLivroController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -27,6 +28,7 @@ Route::middleware(['auth', AdminMiddleware::class])->group(function () {
     Route::delete('/alunos/{id}', [AdminAlunoController::class, 'destroy'])->name('admin.alunos.destroy');
     Route::resource('/admin/categorias', AdminCategoriaController::class)->names('admin.categorias');
     Route::resource('/admin/autores', AdminAutorController::class)->names('admin.autores');
+    Route::resource('/admin/livros', AdminLivroController::class)->names('admin.livros');
 });
 
 Route::middleware('auth')->group(function () {
