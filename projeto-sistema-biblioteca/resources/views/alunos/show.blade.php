@@ -21,10 +21,6 @@
                     <p class="text-xl font-semibold text-gray-900 dark:text-white inline-block">{{ $aluno->user->email }}</p>
                 </div>
                 <div>
-                    <p class="text-sm text-gray-500 dark:text-gray-400 uppercase tracking-widest inline-block">ID do Usuário</p>
-                    <p class="text-xl font-semibold text-gray-900 dark:text-white inline-block">{{ $aluno->user_id }}</p>
-                </div>
-                <div>
                     <p class="text-sm text-gray-500 dark:text-gray-400 uppercase tracking-widest inline-block">Matrícula</p>
                     <p class="text-xl font-semibold text-gray-900 dark:text-white inline-block">{{ $aluno->matricula }}</p>
                 </div>
