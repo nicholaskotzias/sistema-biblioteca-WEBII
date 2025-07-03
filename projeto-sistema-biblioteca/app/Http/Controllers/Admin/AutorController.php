@@ -30,17 +30,13 @@ class AutorController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
+        $validated = $request->validate([
             'nome' => 'required|string|min:3|max:100',
             'biografia' => 'required|string|min:50|max:1000',
             'nacionalidade' => 'required|string|min:3|max:20',
         ]);
 
-        Autor::create([
-            'nome' => $request->nome,
-            'biografia' => $request->biografia,
-            'nacionalidade' => $request->nacionalidade,
-        ]);
+        Autor::create($validated);
 
         return redirect()->route('admin.autores.index')->with('success', 'Autor criado com sucesso');
     }
@@ -72,17 +68,13 @@ class AutorController extends Controller
     {
         $autor = Autor::findOrFail($id);
 
-        $request->validate([
+        $validated = $request->validate([
             'nome' => 'required|string|min:3|max:100',
             'biografia' => 'required|string|min:50|max:1000',
             'nacionalidade' => 'required|string|min:3|max:20',
         ]);
 
-        $autor->update([
-            'nome' => $request->nome,
-            'biografia' => $request->biografia,
-            'nacionalidade' => $request->nacionalidade,
-        ]);
+        $autor->update($validated);
 
         return redirect()->route('admin.autores.index')->with('success', 'Autor atualizado com sucesso');
     }

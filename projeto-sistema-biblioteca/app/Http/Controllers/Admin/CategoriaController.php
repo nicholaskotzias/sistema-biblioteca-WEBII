@@ -30,15 +30,12 @@ class CategoriaController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
+        $validated = $request->validate([
             'nome' => 'required|string|min:3',
             'descricao' => 'required|string|max:255',
         ]);
 
-        Categoria::create([
-            'nome' => $request->nome,
-            'descricao' => $request->descricao,
-        ]);
+        Categoria::create($validated);
 
         return redirect()->route('admin.categorias.index')->with('success', 'Categoria criada com sucesso');
     }
@@ -70,15 +67,12 @@ class CategoriaController extends Controller
     {
         $categoria = Categoria::findOrFail($id);
 
-        $request->validate([
+        $validated = $request->validate([
             'nome' => 'required|string|min:3',
             'descricao' => 'required|string|max:255',
         ]);
 
-        $categoria->update([
-            'nome' => $request->nome,
-            'descricao' => $request->descricao,
-        ]);
+        $categoria->update($validated);
 
         return redirect()->route('admin.categorias.index')->with('success', 'Categoria atualizada com sucesso');
     }
