@@ -25,7 +25,7 @@
                 Manter Aluno
             </a>
 
-            <a href="#" class="flex items-center justify-center gap-3 py-3 rounded-xl bg-gradient-to-r from-green-600 to-emerald-700 text-white font-semibold shadow-lg hover:from-green-700 hover:to-emerald-800 transition w-full max-w-full">
+            <a href="{{ route('admin.livros.index') }}" class="flex items-center justify-center gap-3 py-3 rounded-xl bg-gradient-to-r from-green-600 to-emerald-700 text-white font-semibold shadow-lg hover:from-green-700 hover:to-emerald-800 transition w-full max-w-full">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
                 </svg>
