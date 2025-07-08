@@ -60,7 +60,7 @@
                 Empréstimos Pendentes
             </a>
 
-            <a href="#" class="flex items-center justify-center gap-3 py-3 rounded-xl bg-gradient-to-r from-red-600 to-rose-700 text-white font-semibold shadow-lg hover:from-red-700 hover:to-rose-800 transition w-full max-w-full">
+            <a href="{{ route('admin.relatorio.livrosMaisEmprestados') }}" class="flex items-center justify-center gap-3 py-3 rounded-xl bg-gradient-to-r from-red-600 to-rose-700 text-white font-semibold shadow-lg hover:from-red-700 hover:to-rose-800 transition w-full max-w-full">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M3 10h4v11H3zM9 5h4v16H9zM15 12h4v9h-4z" />
                 </svg>
