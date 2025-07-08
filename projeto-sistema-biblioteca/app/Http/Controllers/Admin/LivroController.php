@@ -7,6 +7,8 @@ use App\Models\Livro;
 use App\Models\Categoria;
 use App\Models\Autor;
 use Illuminate\Http\Request;
+use Barryvdh\DomPDF\Facade\Pdf;
+use Illuminate\Support\Facades\DB;
 
 class LivroController extends Controller
 {
@@ -98,5 +100,20 @@ class LivroController extends Controller
         $livro->delete();
 
         return redirect()->route('admin.livros.index')->with('success', 'Livro deletado com sucesso');
+    }
+
+    public function gerarRelatorioMaisEmprestados()
+    {
+        $livros = DB::table('emprestimos')
+            ->join('exemplares', 'emprestimos.exemplar_id', '=', 'exemplares.id')
+            ->join('livros', 'exemplares.livro_id', '=', 'livros.id')
+            ->select('livros.titulo', DB::raw('COUNT(*) as total_emprestimos'))
+            ->groupBy('livros.id', 'livros.titulo')
+            ->orderByDesc('total_emprestimos')
+            ->limit(10)
+            ->get();
+
+        $pdf = Pdf::loadView('admin.relatorios.livrosMaisEmprestados', compact('livros'));
+        return $pdf->download('livros_mais_emprestados.pdf');
     }
 }
