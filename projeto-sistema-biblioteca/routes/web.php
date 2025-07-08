@@ -31,6 +31,7 @@ Route::middleware(['auth', AdminMiddleware::class])->prefix('admin')->name('admi
     Route::resource('/categorias', AdminCategoriaController::class);
     Route::resource('/autores', AdminAutorController::class);
     Route::resource('/livros', AdminLivroController::class);
+    Route::get('/relatorio/livrosMaisEmprestados', [AdminLivroController::class, 'gerarRelatorioMaisEmprestados']) ->name('relatorio.livrosMaisEmprestados');
     Route::resource('/exemplares', AdminExemplarController::class);
 
     Route::get('/emprestimos/pendentes', [EmprestimoController::class, 'indexAdmin'])->name('emprestimos.pendentes');
