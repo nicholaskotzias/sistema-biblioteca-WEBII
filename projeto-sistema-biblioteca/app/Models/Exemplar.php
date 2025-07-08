@@ -9,6 +9,8 @@ class Exemplar extends Model
 {
     use SoftDeletes;
 
+    protected $table = 'exemplares';
+
     protected $fillable = [
         'livro_id',
         'codigo_exemplar',
