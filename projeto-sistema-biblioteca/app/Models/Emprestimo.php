@@ -19,9 +19,9 @@ class Emprestimo extends Model
     ];
 
     protected $casts = [
-        'data_emprestimo',
-        'data_devolucao_prevista',
-        'data_devolucao_real',
+        'data_emprestimo' => 'datetime',
+        'data_devolucao_prevista' => 'datetime',
+        'data_devolucao_real' => 'datetime',
     ];
 
     public function aluno()
