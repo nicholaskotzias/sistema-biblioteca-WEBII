@@ -24,4 +24,9 @@ class Aluno extends Model
     {
         return $this->belongsTo(User::class);
     }
+
+    public function emprestimos()
+    {
+        return $this->hasMany(Emprestimo::class);
+    }
 }
