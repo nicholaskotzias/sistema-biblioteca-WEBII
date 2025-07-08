@@ -13,23 +13,23 @@
         <div class="w-full max-w-md bg-white dark:bg-gray-800 rounded-3xl shadow-xl p-8 space-y-6 flex flex-col items-center text-center">
             <div class="space-y-4">
                 <div>
-                    <p class="text-sm text-gray-500 dark:text-gray-400 uppercase tracking-widest inline-block">Nome</p>
+                    <p class="text-sm text-gray-500 dark:text-gray-400 uppercase tracking-widest inline-block">Nome:</p>
                     <p class="text-xl font-semibold text-gray-900 dark:text-white inline-block">{{ $aluno->user->name }}</p>
                 </div>
                 <div>
-                    <p class="text-sm text-gray-500 dark:text-gray-400 uppercase tracking-widest inline-block">Email</p>
+                    <p class="text-sm text-gray-500 dark:text-gray-400 uppercase tracking-widest inline-block">Email:</p>
                     <p class="text-xl font-semibold text-gray-900 dark:text-white inline-block">{{ $aluno->user->email }}</p>
                 </div>
                 <div>
-                    <p class="text-sm text-gray-500 dark:text-gray-400 uppercase tracking-widest inline-block">Matrícula</p>
+                    <p class="text-sm text-gray-500 dark:text-gray-400 uppercase tracking-widest inline-block">Matrícula:</p>
                     <p class="text-xl font-semibold text-gray-900 dark:text-white inline-block">{{ $aluno->matricula }}</p>
                 </div>
                 <div>
-                    <p class="text-sm text-gray-500 dark:text-gray-400 uppercase tracking-widest inline-block">Curso</p>
+                    <p class="text-sm text-gray-500 dark:text-gray-400 uppercase tracking-widest inline-block">Curso:</p>
                     <p class="text-xl font-semibold text-gray-900 dark:text-white inline-block">{{ $aluno->curso }}</p>
                 </div>
                 <div>
-                    <p class="text-sm text-gray-500 dark:text-gray-400 uppercase tracking-widest inline-block">Data de Nascimento</p>
+                    <p class="text-sm text-gray-500 dark:text-gray-400 uppercase tracking-widest inline-block">Data de Nascimento:</p>
                     <p class="text-xl font-semibold text-gray-900 dark:text-white inline-block">
                         {{ \Carbon\Carbon::parse($aluno->data_nascimento)->format('d/m/Y') }}
                     </p>

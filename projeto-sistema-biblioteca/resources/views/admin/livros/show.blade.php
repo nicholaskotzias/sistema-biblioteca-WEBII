@@ -13,27 +13,27 @@
         <div class="w-full max-w-xl bg-white dark:bg-gray-800 rounded-3xl shadow-xl p-8 space-y-6 flex flex-col items-center text-center">
             <div class="space-y-4">
                 <div>
-                    <p class="text-sm text-gray-500 dark:text-gray-400 uppercase tracking-widest">Título</p>
+                    <p class="text-sm text-gray-500 dark:text-gray-400 uppercase tracking-widest">Título:</p>
                     <p class="text-xl font-semibold text-gray-900 dark:text-white">{{ $livro->titulo }}</p>
                 </div>
                 <div>
-                    <p class="text-sm text-gray-500 dark:text-gray-400 uppercase tracking-widest">ISBN</p>
+                    <p class="text-sm text-gray-500 dark:text-gray-400 uppercase tracking-widest">ISBN:</p>
                     <p class="text-xl font-mono text-gray-900 dark:text-white">{{ $livro->isbn }}</p>
                 </div>
                 <div>
-                    <p class="text-sm text-gray-500 dark:text-gray-400 uppercase tracking-widest">Descrição</p>
+                    <p class="text-sm text-gray-500 dark:text-gray-400 uppercase tracking-widest">Descrição:</p>
                     <p class="text-xl text-gray-900 dark:text-white">{{ $livro->descricao }}</p>
                 </div>
                 <div>
-                    <p class="text-sm text-gray-500 dark:text-gray-400 uppercase tracking-widest">Ano de Publicação</p>
+                    <p class="text-sm text-gray-500 dark:text-gray-400 uppercase tracking-widest">Ano de Publicação:</p>
                     <p class="text-xl text-gray-900 dark:text-white">{{ $livro->ano_publicacao }}</p>
                 </div>
                 <div>
-                    <p class="text-sm text-gray-500 dark:text-gray-400 uppercase tracking-widest">Categoria</p>
+                    <p class="text-sm text-gray-500 dark:text-gray-400 uppercase tracking-widest">Categoria:</p>
                     <p class="text-xl text-gray-900 dark:text-white">{{ $livro->categoria->nome ?? '-' }}</p>
                 </div>
                 <div>
-                    <p class="text-sm text-gray-500 dark:text-gray-400 uppercase tracking-widest">Autor</p>
+                    <p class="text-sm text-gray-500 dark:text-gray-400 uppercase tracking-widest">Autor:</p>
                     <p class="text-xl text-gray-900 dark:text-white">{{ $livro->autor->nome ?? '-' }}</p>
                 </div>
             </div>

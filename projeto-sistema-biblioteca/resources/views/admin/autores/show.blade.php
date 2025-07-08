@@ -13,15 +13,15 @@
         <div class="w-full max-w-md bg-white dark:bg-gray-800 rounded-3xl shadow-xl p-8 space-y-6 flex flex-col items-center text-center">
             <div class="space-y-4">
                 <div>
-                    <p class="text-sm text-gray-500 dark:text-gray-400 uppercase tracking-widest inline-block">Nome</p>
+                    <p class="text-sm text-gray-500 dark:text-gray-400 uppercase tracking-widest inline-block">Nome:</p>
                     <p class="text-xl font-semibold text-gray-900 dark:text-white inline-block">{{ $autor->nome }}</p>
                 </div>
                 <div>
-                    <p class="text-sm text-gray-500 dark:text-gray-400 uppercase tracking-widest inline-block">Biografia</p>
+                    <p class="text-sm text-gray-500 dark:text-gray-400 uppercase tracking-widest inline-block">Biografia:</p>
                     <p class="text-xl font-semibold text-gray-900 dark:text-white inline-block whitespace-pre-line">{{ $autor->biografia }}</p>
                 </div>
                 <div>
-                    <p class="text-sm text-gray-500 dark:text-gray-400 uppercase tracking-widest inline-block">Nacionalidade</p>
+                    <p class="text-sm text-gray-500 dark:text-gray-400 uppercase tracking-widest inline-block">Nacionalidade:</p>
                     <p class="text-xl font-semibold text-gray-900 dark:text-white inline-block">{{ $autor->nacionalidade }}</p>
                 </div>
             </div>
